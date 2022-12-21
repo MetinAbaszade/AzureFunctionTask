@@ -1,0 +1,17 @@
+﻿@using AzureFuncTask.Entities
+@using System.Net
+@model MyFile
+
+@{
+    ViewData["Title"] = "Home Page";
+    var responsestring = TempData["responseString"];
+}
+
+
+<div class="text-center">
+    <form enctype="multipart/form-data" asp-action="UploadFile" asp-controller="Home">
+        <input asp-for="File" class="custom-file-input" id="customFile">
+        <input type="submit" value="submit" class="btn btn-sm btn-primary rounded-0 text-uppercase" />
+    </form>
+    <p style="margin-top: 30px">@Html.Raw(responsestring?.ToString())</p>
+</div>
